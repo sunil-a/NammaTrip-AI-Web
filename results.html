@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Your Trip Results | NammaTrip AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<header class="navbar">
+    <a class="logo" href="/">🌿 NammaTrip AI</a>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/explore">Explore</a>
+        <a href="/planner">Plan My Trip</a>
+    </nav>
+</header>
+
+<main>
+
+    {% if result.found %}
+
+    <section class="page-hero">
+        <span class="eyebrow">YOUR SUGGESTED DESTINATION</span>
+        <h1>Your Karnataka Adventure</h1>
+        <p>Here is a suggested trip based on your preferences.</p>
+    </section>
+
+    <section class="result-container">
+
+        <article class="result-destination">
+
+            <img
+                src="{{ result.destination.image }}"
+                alt="{{ result.destination.name }}"
+            >
+
+            <div class="result-destination-info">
+                <span class="destination-type">
+                    {{ result.destination.type }}
+                </span>
+
+                <h2>{{ result.destination.name }}</h2>
+
+                <p>{{ result.destination.description }}</p>
+
+                <p>
+                    <strong>District:</strong>
+                    {{ result.destination.district }}
+                </p>
+
+                <h3>Places to Explore</h3>
+
+                <ul class="highlight-list">
+                    {% for highlight in result.destination.highlights %}
+                    <li>{{ highlight }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+        </article>
+
+        <div class="trip-summary">
+
+            <div>
+                <span>💰</span>
+                <p>Estimated Total Cost</p>
+                <h3>₹{{ "{:,.0f}".format(result.estimated_cost) }}</h3>
+            </div>
+
+            <div>
+                <span>📅</span>
+                <p>Duration</p>
+                <h3>{{ result.duration }} Days</h3>
+            </div>
+
+            <div>
+                <span>👥</span>
+                <p>Travellers</p>
+                <h3>{{ result.travellers }}</h3>
+            </div>
+
+        </div>
+
+        <h2 class="itinerary-heading">Your Suggested Itinerary</h2>
+
+        {% for item in result.itinerary %}
+
+        <article class="itinerary-card">
+            <span class="eyebrow">DAY {{ item.day }}</span>
+            <h3>Day {{ item.day }} Plan</h3>
+            <p>{{ item.activity }}</p>
+        </article>
+
+        {% endfor %}
+
+        <p class="estimate-note">
+            <strong>Cost disclaimer:</strong>
+            This is an illustrative estimate based on the sample
+            destination data. It is not a live quote and may exclude
+            transport, accommodation, food, entry fees and other expenses.
+            Verify actual costs before travelling.
+        </p>
+
+    </section>
+
+    {% else %}
+
+    <section class="empty-state result-empty">
+        <span class="eyebrow">LET'S TRY ANOTHER OPTION</span>
+        <h1>No Matching Destination Found</h1>
+
+        <p>
+            No destination in our current sample data matches your
+            selected category and budget. Try a larger budget or another
+            category.
+        </p>
+
+        <a href="/planner" class="btn btn-primary">
+            Change My Preferences
+        </a>
+    </section>
+
+    {% endif %}
+
+</main>
+
+<footer class="footer">
+    <a class="logo" href="/">🌿 NammaTrip AI</a>
+    <p>Discover Karnataka, your way.</p>
+</footer>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

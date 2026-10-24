@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Explore Karnataka | NammaTrip AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<header class="navbar">
+    <a class="logo" href="/">🌿 NammaTrip AI</a>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/explore">Explore</a>
+        <a href="/planner">Plan My Trip</a>
+    </nav>
+</header>
+
+<main>
+
+    <section class="page-hero">
+        <span class="eyebrow">EXPLORE THE BEAUTY OF KARNATAKA</span>
+        <h1>Find Your Next Destination</h1>
+        <p>Search destinations and discover places that match your interests.</p>
+    </section>
+
+    <section class="section">
+
+        <form action="/explore" method="GET" class="filter-form">
+
+            <div>
+                <label for="q">Search destinations</label>
+
+                <input
+                    id="q"
+                    type="search"
+                    name="q"
+                    value="{{ search_query }}"
+                    placeholder="Search by place or district"
+                >
+            </div>
+
+            <div>
+                <label for="type">Category</label>
+
+                <select id="type" name="type">
+                    <option value="All"
+                        {% if selected_type == "All" %}selected{% endif %}>
+                        All Categories
+                    </option>
+
+                    <option value="Nature"
+                        {% if selected_type == "Nature" %}selected{% endif %}>
+                        Nature
+                    </option>
+
+                    <option value="Culture"
+                        {% if selected_type == "Culture" %}selected{% endif %}>
+                        Culture
+                    </option>
+
+                    <option value="History"
+                        {% if selected_type == "History" %}selected{% endif %}>
+                        History
+                    </option>
+
+                    <option value="Beach"
+                        {% if selected_type == "Beach" %}selected{% endif %}>
+                        Beach
+                    </option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Search
+            </button>
+
+        </form>
+
+        <div class="destination-grid">
+
+            {% for place in destinations %}
+
+            <article class="destination-card">
+
+                <img
+                    src="{{ place.image }}"
+                    alt="{{ place.name }}"
+                    loading="lazy"
+                >
+
+                <div class="destination-info">
+
+                    <span class="destination-type">
+                        {{ place.type }}
+                    </span>
+
+                    <h3>{{ place.name }}</h3>
+
+                    <p>{{ place.description }}</p>
+
+                    <p>
+                        <strong>District:</strong> {{ place.district }}
+                    </p>
+
+                    <h4>Highlights</h4>
+
+                    <ul class="highlight-list">
+                        {% for highlight in place.highlights %}
+                        <li>{{ highlight }}</li>
+                        {% endfor %}
+                    </ul>
+
+                    <p class="price">
+                        From ₹{{ "{:,.0f}".format(place.cost) }}
+                        <small>estimated base cost</small>
+                    </p>
+
+                    <a href="/planner" class="btn btn-primary">
+                        Plan a Trip →
+                    </a>
+
+                </div>
+            </article>
+
+            {% else %}
+
+            <div class="empty-state">
+                <h3>No destinations found</h3>
+                <p>Try another destination name or category.</p>
+                <a href="/explore" class="btn btn-outline">
+                    Show All Destinations
+                </a>
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer class="footer">
+    <a class="logo" href="/">🌿 NammaTrip AI</a>
+    <p>Discover Karnataka, your way.</p>
+</footer>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

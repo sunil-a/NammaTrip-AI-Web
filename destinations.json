@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Coorg",
+    "type": "Nature",
+    "district": "Kodagu",
+    "cost": 2500,
+    "description": "Explore green hills, coffee plantations and beautiful waterfalls.",
+    "highlights": ["Abbey Falls", "Raja's Seat", "Coffee Plantations"],
+    "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": 2,
+    "name": "Mysuru",
+    "type": "Culture",
+    "district": "Mysuru",
+    "cost": 1500,
+    "description": "Discover royal heritage, magnificent architecture and local culture.",
+    "highlights": ["Mysuru Palace", "Chamundi Hills", "Devaraja Market"],
+    "image": "https://images.unsplash.com/photo-1566552881560-0be862a7c445?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": 3,
+    "name": "Hampi",
+    "type": "History",
+    "district": "Vijayanagara",
+    "cost": 3000,
+    "description": "Explore ancient temples and historic stone monuments.",
+    "highlights": ["Virupaksha Temple", "Stone Chariot", "Hampi Bazaar"],
+    "image": "https://images.unsplash.com/photo-1606293926075-69a00dbfde81?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": 4,
+    "name": "Chikkamagaluru",
+    "type": "Nature",
+    "district": "Chikkamagaluru",
+    "cost": 2200,
+    "description": "Enjoy scenic hills, mountain views and coffee estates.",
+    "highlights": ["Mullayanagiri", "Baba Budangiri", "Coffee Estates"],
+    "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": 5,
+    "name": "Gokarna",
+    "type": "Beach",
+    "district": "Uttara Kannada",
+    "cost": 2000,
+    "description": "Discover scenic beaches and Karnataka's coastal beauty.",
+    "highlights": ["Om Beach", "Kudle Beach", "Mahabaleshwar Temple"],
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": 6,
+    "name": "Shivamogga",
+    "type": "Nature",
+    "district": "Shivamogga",
+    "cost": 1800,
+    "description": "Explore waterfalls, forests and green landscapes.",
+    "highlights": ["Jog Falls", "Sakrebailu", "Agumbe"],
+    "image": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=80"
+  }
+]
