@@ -24,7 +24,7 @@ NammaTrip AI is a web application that helps users discover tourist destinations
 ### 1. Clone the repository
 
 ```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
+git clone https://github.com/sunil-a/NammaTrip-AI-Web.git
 ```
 
 ### 2. Open the project folder
